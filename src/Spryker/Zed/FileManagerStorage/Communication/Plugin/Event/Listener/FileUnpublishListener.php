@@ -7,16 +7,14 @@
 
 namespace Spryker\Zed\FileManagerStorage\Communication\Plugin\Event\Listener;
 
-use Spryker\Zed\FileManager\Dependency\FileManagerEvents;
-
 /**
- * @deprecated Use `\Spryker\Zed\FileManagerStorage\Communication\Plugin\Event\Listener\FilePublishListener` and `\Spryker\Zed\FileManagerStorage\Communication\Plugin\Event\Listener\FileUnpublishListener` instead.
- *
  * @method \Spryker\Zed\FileManagerStorage\Communication\FileManagerStorageCommunicationFactory getFactory()
  */
-class FileListener extends AbstractFileManagerListener
+class FileUnpublishListener extends AbstractFileManagerListener
 {
     /**
+     * {@inheritdoc}
+     *
      * @api
      *
      * @param \Generated\Shared\Transfer\EventEntityTransfer[] $eventTransfers
@@ -29,12 +27,6 @@ class FileListener extends AbstractFileManagerListener
         $this->preventTransaction();
         $fileIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
 
-        if ($eventName === FileManagerEvents::ENTITY_FILE_DELETE) {
-            $this->unpublish($fileIds);
-        }
-
-        if ($eventName === FileManagerEvents::ENTITY_FILE_CREATE || $eventName === FileManagerEvents::ENTITY_FILE_UPDATE) {
-            $this->publish($fileIds);
-        }
+        $this->unpublish($fileIds);
     }
 }
