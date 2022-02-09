@@ -242,20 +242,7 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
     protected function getLatestFileInfo(ArrayObject $fileInfoTransfers)
     {
         return array_reduce($fileInfoTransfers->getArrayCopy(), function ($a, $b) {
-            /**
-             * @var \Generated\Shared\Transfer\FileInfoTransfer|null $a
-             * @var \Generated\Shared\Transfer\FileInfoTransfer|null $b
-             */
-            if (!$b) {
-                // For BC
-                return $a;
-            }
-            if (!$a) {
-                // For BC
-                return $b;
-            }
-
-            return $a->getVersion() > $b->getVersion() ? $a : $b;
+            return $a ? ($a->getVersion() > $b->getVersion() ? $a : $b) : $b;
         });
     }
 }
