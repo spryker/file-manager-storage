@@ -244,8 +244,9 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
         return array_reduce($fileInfoTransfers->getArrayCopy(), function ($a, $b) {
             /**
              * @var \Generated\Shared\Transfer\FileInfoTransfer|null $a
-             * @var \Generated\Shared\Transfer\FileInfoTransfer|null $b
+             * @var \Generated\Shared\Transfer\FileInfoTransfer $b
              */
+            /** @phpstan-ignore booleanNot.alwaysFalse */
             if (!$b) {
                 // For BC
                 return $a;
