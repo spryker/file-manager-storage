@@ -91,11 +91,6 @@ class FileManagerStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFileManagerFacade(Container $container): Container
     {
         $container->set(static::FACADE_FILE_MANAGER, function (Container $container) {

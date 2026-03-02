@@ -25,11 +25,6 @@ class FileManagerStorageToFileManagerFacadeBridge implements FileManagerStorageT
         $this->fileManagerFacade = $fileManagerFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\FileCriteriaTransfer $fileCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\FileCollectionTransfer
-     */
     public function getFileCollection(FileCriteriaTransfer $fileCriteriaTransfer): FileCollectionTransfer
     {
         return $this->fileManagerFacade->getFileCollection($fileCriteriaTransfer);

@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\FileCriteriaTransfer;
 
 interface FileManagerStorageToFileManagerFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\FileCriteriaTransfer $fileCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\FileCollectionTransfer
-     */
     public function getFileCollection(FileCriteriaTransfer $fileCriteriaTransfer): FileCollectionTransfer;
 }

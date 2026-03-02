@@ -82,12 +82,6 @@ class FileManagerPublisherTriggerPlugin extends AbstractPlugin implements Publis
         return static::COL_ID_FILE;
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\FileCriteriaTransfer
-     */
     protected function createFileCriteriaTransfer(int $offset, int $limit): FileCriteriaTransfer
     {
         return (new FileCriteriaTransfer())

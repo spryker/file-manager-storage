@@ -128,12 +128,6 @@ class FileSynchronizationDataBulkPlugin extends AbstractPlugin implements Synchr
             ->getFileManagerSynchronizationPoolName();
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\FilterTransfer
-     */
     protected function createFilterTransfer(int $offset, int $limit): FilterTransfer
     {
         return (new FilterTransfer())

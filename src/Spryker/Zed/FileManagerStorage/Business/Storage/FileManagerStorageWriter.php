@@ -42,11 +42,6 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\FileManagerStorage\Persistence\FileManagerStorageEntityManagerInterface $entityManager
-     * @param \Spryker\Zed\FileManagerStorage\Persistence\FileManagerStorageRepositoryInterface $repository
-     * @param \Spryker\Zed\FileManagerStorage\Dependency\Facade\FileManagerStorageToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         FileManagerStorageEntityManagerInterface $entityManager,
         FileManagerStorageRepositoryInterface $repository,

@@ -27,9 +27,6 @@ class FileManagerStorageCommunicationFactory extends AbstractCommunicationFactor
         return $this->getProvidedDependency(FileManagerStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);
     }
 
-    /**
-     * @return \Spryker\Zed\FileManagerStorage\Dependency\Facade\FileManagerStorageToFileManagerFacadeInterface
-     */
     public function getFileManagerFacade(): FileManagerStorageToFileManagerFacadeInterface
     {
         return $this->getProvidedDependency(FileManagerStorageDependencyProvider::FACADE_FILE_MANAGER);
