@@ -30,4 +30,14 @@ class FileManagerStorageConfig extends AbstractBundleConfig
      * @var string
      */
     public const FILE_PUBLISH = 'File.spy_file.publish';
+
+    /**
+     * Specification:
+     * - Queue name used for file manager publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_FILE_MANAGER_QUEUE = 'publish.file_manager';
 }
