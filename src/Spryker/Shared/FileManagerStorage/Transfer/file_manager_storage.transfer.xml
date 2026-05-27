@@ -3,6 +3,7 @@
 
     <transfer name="FileStorageData">
         <property name="fkFile" type="int"/>
+        <property name="uuid" type="string"/>
         <property name="fileName" type="string"/>
         <property name="type" type="string"/>
         <property name="size" type="int"/>
@@ -21,6 +22,7 @@
         <property name="idFileStorage" type="int"/>
         <property name="fileName" type="string"/>
         <property name="fkFile" type="int"/>
+        <property name="fileUuid" type="string"/>
         <property name="data" type="FileStorageData"/>
         <property name="locale" type="string"/>
         <property name="key" type="string"/>

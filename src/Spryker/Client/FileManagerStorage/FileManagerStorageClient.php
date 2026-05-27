@@ -7,6 +7,7 @@
 
 namespace Spryker\Client\FileManagerStorage;
 
+use Generated\Shared\Transfer\FileStorageDataTransfer;
 use Spryker\Client\Kernel\AbstractClient;
 
 /**
@@ -29,5 +30,22 @@ class FileManagerStorageClient extends AbstractClient implements FileManagerStor
         return $this->getFactory()
             ->createFileStorage()
             ->findFileById($idFile, $localeName);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param string $uuid
+     * @param string $localeName
+     *
+     * @return \Generated\Shared\Transfer\FileStorageDataTransfer|null
+     */
+    public function findFileByUuid(string $uuid, string $localeName): ?FileStorageDataTransfer
+    {
+        return $this->getFactory()
+            ->createFileStorage()
+            ->findFileByUuid($uuid, $localeName);
     }
 }

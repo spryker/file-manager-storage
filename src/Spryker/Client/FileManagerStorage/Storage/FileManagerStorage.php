@@ -20,6 +20,11 @@ class FileManagerStorage implements FileManagerStorageInterface
     protected const RESOURCE_NAME = 'file';
 
     /**
+     * @var string
+     */
+    protected const UUID_REFERENCE_PREFIX = 'uuid';
+
+    /**
      * @var \Spryker\Client\FileManagerStorage\Dependency\Client\FileManagerStorageToStorageClientInterface
      */
     protected $storageClient;
@@ -50,15 +55,33 @@ class FileManagerStorage implements FileManagerStorageInterface
      */
     public function findFileById(int $idFile, string $localeName)
     {
-        $fileStorageDataTransfer = new FileStorageDataTransfer();
-        $storageKey = $this->generateKey((string)$idFile, $localeName);
+        return $this->findFileByReference((string)$idFile, $localeName);
+    }
+
+    public function findFileByUuid(string $uuid, string $localeName): ?FileStorageDataTransfer
+    {
+        // The sync behavior stores the alias at "file:{locale}:uuid:{uuid}" — source prefix is the mapping field name.
+        $storageKey = $this->generateKey(sprintf('%s:%s', static::UUID_REFERENCE_PREFIX, $uuid), $localeName);
+        $aliasData = $this->storageClient->get($storageKey);
+
+        if ($aliasData === null || !isset($aliasData['id'])) {
+            return null;
+        }
+
+        return $this->findFileByReference((string)$aliasData['id'], $localeName);
+    }
+
+    protected function findFileByReference(string $reference, string $localeName): ?FileStorageDataTransfer
+    {
+        $storageKey = $this->generateKey($reference, $localeName);
         $fileContent = $this->storageClient->get($storageKey);
 
         if ($fileContent === null) {
-            return $fileContent;
+            return null;
         }
 
-        $fileStorageDataTransfer->fromArray(($fileContent), true);
+        $fileStorageDataTransfer = new FileStorageDataTransfer();
+        $fileStorageDataTransfer->fromArray($fileContent, true);
 
         return $fileStorageDataTransfer;
     }

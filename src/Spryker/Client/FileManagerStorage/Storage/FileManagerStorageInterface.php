@@ -7,6 +7,8 @@
 
 namespace Spryker\Client\FileManagerStorage\Storage;
 
+use Generated\Shared\Transfer\FileStorageDataTransfer;
+
 interface FileManagerStorageInterface
 {
     /**
@@ -16,4 +18,6 @@ interface FileManagerStorageInterface
      * @return \Generated\Shared\Transfer\FileStorageDataTransfer|null
      */
     public function findFileById(int $idFile, string $localeName);
+
+    public function findFileByUuid(string $uuid, string $localeName): ?FileStorageDataTransfer;
 }

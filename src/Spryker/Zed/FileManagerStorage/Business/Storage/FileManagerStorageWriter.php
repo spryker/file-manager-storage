@@ -156,6 +156,7 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
         $fileStorageTransfer->setFileName($fileTransfer->getFileName());
         $fileStorageTransfer->setLocale($localeTransfer->getLocaleName());
         $fileStorageTransfer->setFkFile($fileTransfer->getIdFile());
+        $fileStorageTransfer->setFileUuid($fileTransfer->getUuid() ?? (string)$fileTransfer->getIdFileOrFail());
         $fileStorageTransfer->setData(
             $this->mapToFileStorageDataTransfer($fileTransfer, $localeTransfer),
         );
@@ -174,6 +175,7 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
     {
         $fileStorageDataTransfer = $this->mapToFileStorageDataTransfer($fileTransfer, $localeTransfer);
         $fileStorageTransfer->setFileName($fileTransfer->getFileName());
+        $fileStorageTransfer->setFileUuid($fileTransfer->getUuid() ?? (string)$fileTransfer->getIdFileOrFail());
         $fileStorageTransfer->setData($fileStorageDataTransfer);
         $this->entityManager->saveFileStorage($fileStorageTransfer);
     }

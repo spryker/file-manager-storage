@@ -17,6 +17,7 @@
             <parameter name="locale" required="true"/>
             <parameter name="queue_group" value="sync.storage.file"/>
             <parameter name="key_suffix_column" value="fk_file"/>
+            <parameter name="mappings" value="uuid:fk_file"/>
         </behavior>
     </table>
 </database>
