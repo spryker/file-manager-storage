@@ -149,7 +149,6 @@ class FileManagerStorageWriterTest extends Unit
     protected function callCreateDataSet(FileManagerStorageWriter $writer, FileTransfer $fileTransfer, LocaleTransfer $localeTransfer): void
     {
         $method = (new ReflectionClass($writer))->getMethod('createDataSet');
-        $method->setAccessible(true);
         $method->invoke($writer, $fileTransfer, $localeTransfer);
     }
 
@@ -160,7 +159,6 @@ class FileManagerStorageWriterTest extends Unit
         LocaleTransfer $localeTransfer,
     ): void {
         $method = (new ReflectionClass($writer))->getMethod('updateDataSet');
-        $method->setAccessible(true);
         $method->invoke($writer, $fileTransfer, $fileStorageTransfer, $localeTransfer);
     }
 }
