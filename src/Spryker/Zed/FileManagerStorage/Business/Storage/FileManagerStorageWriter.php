@@ -83,7 +83,7 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\FileTransfer> $fileTransfers
-     * @param \ArrayObject<int, \Generated\Shared\Transfer\FileStorageTransfer> $fileStorageTransfers
+     * @param \ArrayObject<array-key, \Generated\Shared\Transfer\FileStorageTransfer> $fileStorageTransfers
      *
      * @return bool
      */
@@ -99,7 +99,7 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
     }
 
     /**
-     * @param \ArrayObject<int, \Generated\Shared\Transfer\FileStorageTransfer> $fileStorageTransfers
+     * @param \ArrayObject<array-key, \Generated\Shared\Transfer\FileStorageTransfer> $fileStorageTransfers
      *
      * @throws \Spryker\Zed\FileManager\Exception\FileStorageNotFoundException
      *
@@ -118,7 +118,7 @@ class FileManagerStorageWriter implements FileManagerStorageWriterInterface
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\FileTransfer> $fileTransfers
-     * @param \ArrayObject<int, \Generated\Shared\Transfer\FileStorageTransfer> $fileStorageTransfers
+     * @param \ArrayObject<array-key, \Generated\Shared\Transfer\FileStorageTransfer> $fileStorageTransfers
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return void

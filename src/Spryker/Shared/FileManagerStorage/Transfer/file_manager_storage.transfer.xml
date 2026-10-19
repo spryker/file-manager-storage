@@ -47,6 +47,7 @@
         <property name="fileInfo" type="FileInfo[]" singular="fileInfo"/>
         <property name="fileName" type="string"/>
         <property name="localizedAttributes" type="FileLocalizedAttributes[]" singular="localizedAttributes"/>
+        <property name="uuid" type="string"/>
     </transfer>
 
     <transfer name="Locale">

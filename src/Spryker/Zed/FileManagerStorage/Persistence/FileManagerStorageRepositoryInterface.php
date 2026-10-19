@@ -21,7 +21,7 @@ interface FileManagerStorageRepositoryInterface
     /**
      * @param array $fileStorageIds
      *
-     * @return \ArrayObject<int, \Generated\Shared\Transfer\FileStorageTransfer>
+     * @return \ArrayObject<array-key, \Generated\Shared\Transfer\FileStorageTransfer>
      */
     public function findFileStoragesByIds(array $fileStorageIds);
 
