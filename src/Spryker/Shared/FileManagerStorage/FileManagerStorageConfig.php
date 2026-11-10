@@ -7,9 +7,9 @@
 
 namespace Spryker\Shared\FileManagerStorage;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
+use Spryker\Shared\Kernel\AbstractSharedConfig;
 
-class FileManagerStorageConfig extends AbstractBundleConfig
+class FileManagerStorageConfig extends AbstractSharedConfig
 {
     /**
      * Specification:
